@@ -41,7 +41,7 @@ public class PerfectNumber{
         scanner.close();
     }
 
-    public static boolean isPerfectNumber(int n) {
+        public static boolean isPerfectNumber(int n) {
         if (n <= 1) {
             return false;
         }
