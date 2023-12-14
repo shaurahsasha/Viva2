@@ -7,6 +7,13 @@ public class PerfectNumber{
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a perfect number: ");
         int perfectNumber = scanner.nextInt();
+        
+        if (perfectNumber <= 0) {
+        System.out.println("Invalid input. Please enter a positive integer.");
+    
+        scanner.close();
+        return;
+        }
 
         if (isPerfectNumber(perfectNumber)) {
             System.out.println(perfectNumber + " is a perfect number.");
