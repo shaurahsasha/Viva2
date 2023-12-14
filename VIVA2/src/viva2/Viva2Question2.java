@@ -1,19 +1,62 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
- */
-package viva2;
+import java.util.Scanner;
 
-/**
- *
- * @author Shaurah Sasha
- */
-public class Viva2Question2 {
+public class PerfectNumber{
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        // TODO code application logic here
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a perfect number: ");
+        int perfectNumber = scanner.nextInt();
+
+        if (isPerfectNumber(perfectNumber)) {
+            System.out.println(perfectNumber + " is a perfect number.");
+        } else {
+            System.out.println(perfectNumber + " is not a perfect number.");
+        }
+
+        System.out.println("Perfect numbers in the range [1, " + perfectNumber + "] are:");
+
+        boolean perfectNumberFound = false;
+        for (int i = 1; i <= perfectNumber; i++) {
+            if (isPerfectNumber(i)) {
+                System.out.println(i);
+                perfectNumberFound = true;
+            }
+        }
+
+        if (perfectNumberFound) {
+            int sum = sumOfPerfectNumbers(perfectNumber);
+            System.out.println("Sum of all perfect numbers in the range [1, " + perfectNumber + "]: " + sum);
+        } else {
+            System.out.println("No perfect numbers found in the specified range.");
+        }
+
+        scanner.close();
+    }
+
+    public static boolean isPerfectNumber(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        int sum = 1;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                sum += i;
+                if (i != n / i) {
+                    sum += n / i;
+                }
+            }
+        }
+        return sum == n;
+    }
+
+    public static int sumOfPerfectNumbers(int range) {
+        int sum = 0;
+        for (int i = 1; i <= range; i++) {
+            if (isPerfectNumber(i)) {
+                sum += i;
+            }
+        }
+        return sum;
     }
 }
