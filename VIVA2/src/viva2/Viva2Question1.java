@@ -30,7 +30,11 @@ public class Viva2Question1 {
     }
 
     public static int findMax(int[] arr) {
-
+        int result = arr[0];
+        for (int i = 1; i<arr.length; i++){
+            result = Math.max(result, arr[i]);
+        }
+        return result;
     }
 
     public static int findMin(int[] arr) {
@@ -42,7 +46,11 @@ public class Viva2Question1 {
     }
 
     public static int calculateSumOfDifference(int[] arr) {
-
+        int result = arr[0];
+        for (int i = 1; i < arr.length; i++){
+            result = Math.calculateSumOfDifference(result, arr[i]);
+        }
+        return result;
     }
 
     public static int round(int n) {
