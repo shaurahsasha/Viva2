@@ -46,12 +46,15 @@ public class Viva2Question1 {
     }
 
     public static int calculateSumOfDifference(int[] arr) {
-        int result = arr[0];
-        for (int i = 1; i < arr.length; i++){
-            result = Math.calculateSumOfDifference(result, arr[i]);
+        int max = findMax(arr);
+        int result = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            result += Math.abs( max - arr[i]);
         }
+
         return result;
-    }
+    }    
 
     public static int round(int n) {
         int result;
